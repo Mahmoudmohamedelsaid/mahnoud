@@ -1,0 +1,86 @@
+#include <iostream>
+using namespace std;
+
+
+class Node{
+    public:
+    int data;
+    Node* next;
+};
+
+class stack{
+    public:
+    Node* Top;
+
+    stack(){
+        Top = NULL;
+    }
+
+    bool isEmpty(){
+        return(Top == NULL);
+    }
+
+    void push(int newValue){
+
+        Node* newNode = new Node();
+        newNode -> data = newValue;
+        newNode -> next = Top;
+        Top = newNode;
+    }
+
+    void pop(){
+       if(isEmpty()){
+        cout << "the stack is empty" << endl;
+       }else{
+        Node* delPointer = Top;
+        Top = Top -> next;
+        delete delPointer;
+
+       }
+    }
+
+    void display(){
+
+        if(isEmpty()){
+            cout << "no item" << endl;
+        }else{
+           Node* temp = Top;
+           while(temp != NULL){
+             cout << temp -> data << endl;
+             temp = temp -> next;
+           }
+        }
+    }
+
+    void TOP(){
+        cout << "the Top element is " << Top -> data << endl;
+    }
+
+    int count(){
+        Node* temp = Top;
+        int counter;
+        while(temp != NULL){
+            counter++;
+            temp = temp ->next;
+        }
+
+        return counter;
+    }
+
+
+};
+
+
+
+int main(){
+
+   stack list;
+
+   list.push(2);
+   list.push(3);
+   list.push(4);
+   list.push(5);
+   list.display();
+   list.TOP();
+   cout << list.count();
+}
