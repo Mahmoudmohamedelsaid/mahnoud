@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+
+
+const int Size = 5;
+int Queue[Size];
+int front, rear = -1;
+
+bool isFull(){
+    if(rear == Size - 1){
+        return true;
+    }else{return false;}
+}
+
+bool isEmpty(){
+    if(rear == -1 && front == -1){
+        return true;
+    }else{return false;}
+}
+
+void Enqueue(int value){
+    if(isFull()){
+
+        cout << "the queue is full" << endl;
+    }else{
+        if(rear == -1 && front == -1){
+            rear++;
+            front++;
+            Queue[rear] = value;
+        }else{rear++; Queue[rear] = value;}
+    }
+}
+
+
+void Dequeue(){
+    if(isEmpty()){
+        cout << "Queue is empty" << endl;
+    }else{
+        front++;
+    }
+}
+
+
+int Peak(){
+    if(isEmpty()){
+        cout << "Queue is empty " << endl;
+        return -1;
+    }else{
+        return Queue[front];
+    }
+}
+
+void Display(){
+    if(isEmpty()){
+        cout << "Queue is empty " << endl;
+    }else{
+        for(int i = front; i <= rear; i++){
+            cout << Queue[i] << endl;
+        }
+    }
+}
+
+int main(){
+
+    Enqueue(10);
+    Enqueue(20);
+    Enqueue(30);
+
+    Display();
+
+    Dequeue();
+
+    Display();
+
+    cout << Peak();
