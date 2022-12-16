@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n, arr[100], element, i, del, value, position;
+    cout<< "enter number of array element" << endl;
+    cin>>n;
+    
+    cout<< "enter " << n << " array elements" << endl;
+    
+    for(i = 0; i< n; i++){
+        cin>> arr[i];
+    }
+    
+    
+    cout<< "enter the num you want to search in array " << endl;
+    cin >> element;
+    
+    for(i = 0; i < n; i++){
+        if(arr[i] ==  element){
+            cout << "the element found at index " << i << endl;
+            break;
+        } 
+    }
+    if(i == n){
+            cout<< " element not found" << endl;
+        }
+    
+    // Delete Done
+    cout << "enter the element you want to delete\n";
+    cin>> del;
+    
+    for(i = 0; i < n; i++){
+        if(arr[i] != del){
+            
+            cout << arr[i] << " ";
+        }
+    }
+    cout << endl;
+    
+    // Insert Done
+    cout<< "enter the value you want to insert "<< endl;
+    cin >> value;
+    
+    cout << "enter the position" << endl;
+    cin >> position;
+    
+    for(i = 0; i < position; i++){
+        arr[position] = value;
+    }
+    for(i = 0; i < n; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
